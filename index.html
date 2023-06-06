@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool button hover</title>
+</head>
+
+<style>
+    *,::before,::after{
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+    }
+    html{
+        font-size: 62.5%;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        display: flex;
+    }
+    .container button{
+        position: relative;
+        font-size: 2rem;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+        border: none;
+        cursor: pointer;
+        transition: all .4s;
+    }
+    .container button:hover{
+        color: white;
+    }
+
+    .container button span{
+        position: relative;
+        z-index: 10;
+    }
+
+    .container button::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: #000;
+        transition: all .4s;
+    }
+    .container button:first-of-type::before{
+        right: 0;
+    }
+    .container button:last-of-type::before{
+        left: 0;
+    }
+
+    .container button:first-of-type:hover::before{
+        width: 100%;
+    }
+    .container button:last-of-type:hover::before{
+        width: 100%;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <button>
+            <span>< prev</span>
+        </button>
+        
+        <button>
+            <span>next ></span>
+        </button>
+    </div>
+</body>
+</html>
